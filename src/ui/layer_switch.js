@@ -9,11 +9,7 @@ module.exports = function(context) {
             })
         }, {
             title: 'Satellite',
-            layer: L.mapbox.tileLayer('tmcw.map-j5fsp01s', {
-                detectRetina: true
-                maxZoom: 24,
-                maxNativeZoom:19 
-            })
+            layer: L.mapbox.tileLayer('http://localhost:8080/tilejson.json')
         }, {
             title: 'OSM',
             layer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
