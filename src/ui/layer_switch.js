@@ -12,7 +12,7 @@ module.exports = function(context) {
             layer: L.mapbox.tileLayer('tmcw.map-j5fsp01s', {
                 detectRetina: true
                 maxZoom: 24,
-                maxNativeZoom:18 
+                maxNativeZoom:19 
             })
         }, {
             title: 'OSM',
