@@ -11,6 +11,8 @@ module.exports = function(context) {
             title: 'Satellite',
             layer: L.mapbox.tileLayer('tmcw.map-j5fsp01s', {
                 detectRetina: true
+                maxZoom: 24,
+                maxNativeZoom:18 
             })
         }, {
             title: 'OSM',
