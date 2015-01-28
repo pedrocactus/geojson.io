@@ -9,7 +9,11 @@ module.exports = function(context) {
             })
         }, {
             title: 'Satellite',
-            layer: L.mapbox.tileLayer('http://localhost:8080/tilejson.json')
+            layer: L.mapbox.tileLayer('http://localhost:8080/tilejson.json',{
+           	maxZoom:24,
+		minZoom:0,
+		maxNativeZoom:19 
+           })
         }, {
             title: 'OSM',
             layer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
