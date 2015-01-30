@@ -105,14 +105,15 @@ function bindPopup(l) {
 
     if (!Object.keys(properties).length) properties = { '': '' };
 
-    for (var key in properties) {
-        table += '<tr><th><input type="text" value="' + key + '"' + (!writable ? ' readonly' : '') + ' /></th>' +
-            '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
-    }
+   
 
     if (l.feature && l.feature.geometry) {
         info += '<table class="metadata">';
         if (l.feature.geometry.type === 'LineString') {
+            for (var key in properties) {
+                table += '<tr><th><input type="text" value="' + key + '"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+            }
             var total = d3.pairs(l.feature.geometry.coordinates).reduce(function(total, pair) {
                 return total + L.latLng(pair[0][1], pair[0][0])
                     .distanceTo(L.latLng(pair[1][1], pair[1][0]));
@@ -120,9 +121,31 @@ function bindPopup(l) {
             info += '<tr><td>meters</td><td>' + total.toFixed(2) +    '</td></tr>';
             info += '<tr><td>miles</td><td>' + (total / 1609.34).toFixed(2) + '</td></tr>';
         } else if (l.feature.geometry.type === 'Point') {
+             for (var key in properties) {
+                table += '<tr><th><input type="text" value="' + key + '"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+                table += '<tr><th><input type="text" value="name"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+                 table += '<tr><th><input type="text" value="level"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><select><option value="">Choose a destination...</option><option value="http://www.yahoo.com/">YAHOO</option></select>/></td></tr>';
+                 table += '<tr><th><input type="text" value="name"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+                 table += '<tr><th><input type="text" value="name"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+                 table += '<tr><th><input type="text" value="name"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+                 table += '<tr><th><input type="text" value="name"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+                 table += '<tr><th><input type="text" value="name"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+            }
             info += '<tr><td>Latitude </td><td>' + l.feature.geometry.coordinates[1].toFixed(4) + '</td></tr>' +
                     '<tr><td>Longitude</td><td>' + l.feature.geometry.coordinates[0].toFixed(4) + '</td></tr>';
         } else if (l.feature.geometry.type === 'Polygon') {
+            for (var key in properties) {
+                table += '<tr><th><input type="text" value="' + key + '"' + (!writable ? ' readonly' : '') + ' /></th>' +
+                '<td><input type="text" value="' + properties[key] + '"' + (!writable ? ' readonly' : '') + ' /></td></tr>';
+            }
             info += '<tr><td>Area km<sup>2</sup></td><td>' + (LGeo.area(l) / 1000000).toFixed(2) + '</td></tr>';
         }
         info += '</table>';
